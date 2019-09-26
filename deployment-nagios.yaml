@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nagios
-        image: pogossian/nagios-k8s
+        image: pogossian/nagios-k8s:v1.1
         imagePullPolicy: "Always"
         ports:
         - containerPort: 80
