@@ -1,7 +1,7 @@
 variables:
   LATEST_VER: pogossian/nagios-k8s:latest
   MAJOR_VER: pogossian/nagios-k8s:v1
-  MINOR_VER: pogossian/nagios-k8s:v1.4
+  MINOR_VER: pogossian/nagios-k8s:v1.5
   deploy_host: 185.92.84.173
   deploy_ssh_port: 44022
   deploy_ssh_username: gorpoghosyan
