@@ -1,7 +1,7 @@
 variables:
   LATEST_VER: pogossian/nagios-k8s:latest
   MAJOR_VER: pogossian/nagios-k8s:v1
-  MINOR_VER: pogossian/nagios-k8s:v1.3
+  MINOR_VER: pogossian/nagios-k8s:v1.4
   deploy_host: 185.92.84.173
   deploy_ssh_port: 44022
   deploy_ssh_username: gorpoghosyan
@@ -35,4 +35,4 @@ deploy on k8s:
   before_script:
   - ssh $deploy_host -p $deploy_ssh_port -l $deploy_ssh_username "export GIT_SSL_NO_VERIFY=1 && rm -rf ${deploy_path}/${CI_PROJECT_NAME} && git clone $CI_REPOSITORY_URL"
   script:
-  - ssh $deploy_host -p $deploy_ssh_port -l $deploy_ssh_username "kubectl apply -f ${deploy_path}/${CI_PROJECT_NAME} && exit"
+  - ssh $deploy_host -p $deploy_ssh_port -l $deploy_ssh_username "kubectl apply -f ${deploy_path}/${CI_PROJECT_NAME}/.kube/"
