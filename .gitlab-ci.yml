@@ -35,4 +35,4 @@ deploy on k8s:
   before_script:
   - ssh $deploy_host -p $deploy_ssh_port -l $deploy_ssh_username "export GIT_SSL_NO_VERIFY=1 && rm -rf ${deploy_path}/${CI_PROJECT_NAME} && git clone $CI_REPOSITORY_URL"
   script:
-  - ssh $deploy_host -p $deploy_ssh_port -l $deploy_ssh_username "kubectl apply -f ${deploy_path}/${CI_PROJECT_NAME}"
+  - ssh $deploy_host -p $deploy_ssh_port -l $deploy_ssh_username "kubectl apply -f ${deploy_path}/${CI_PROJECT_NAME} && exit"
