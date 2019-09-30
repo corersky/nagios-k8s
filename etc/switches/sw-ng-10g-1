@@ -1,0 +1,12 @@
+define host{
+        use                     generic-switch
+        host_name               sw-ng-10g-1.internal.hscloud.am
+        alias                   sw-ng-10g-1
+        address                 10.62.1.250
+        check_command           check-host-alive
+        notification_period     24x7
+        notification_options    d,r
+        max_check_attempts      3
+        notification_interval   0
+        contact_groups          admins
+        }
