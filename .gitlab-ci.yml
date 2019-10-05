@@ -2,6 +2,7 @@ variables:
   LATEST_VER: pogossian/nagios-k8s:latest
   MAJOR_VER: pogossian/nagios-k8s:v2
   MINOR_VER: pogossian/nagios-k8s:v2.9
+  BUGFIX_VER: pogossian/nagios-k8s:v2.9.1
   deploy_host: 185.92.84.173
   deploy_ssh_port: 44022
   deploy_ssh_username: gorpoghosyan
@@ -16,7 +17,7 @@ build image:
   stage: Build image
   script:
   - docker info
-  - docker build -t $LATEST_VER -t $MAJOR_VER -t $MINOR_VER .
+  - docker build -t $LATEST_VER -t $MAJOR_VER -t $MINOR_VER -t $BUGFIX_VER .
 
 
 push image:
@@ -28,6 +29,8 @@ push image:
   - docker push $LATEST_VER && docker image rm $LATEST_VER
   - docker push $MAJOR_VER && docker image rm $MAJOR_VER
   - docker push $MINOR_VER && docker image rm $MINOR_VER
+  - docker push $BUGFIX_VER && docker image rm $BUGFIX_VER
+
 
 
 deploy on k8s:
